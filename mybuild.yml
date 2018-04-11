@@ -4,25 +4,11 @@ phases:
   pre_build:
     commands:
       - apt-get update -y
-      - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
-      - unzip awscli-bundle.zip
-      - ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
-      - ./awscli-bundle/install -h
-      - mkdir ~/.aws
-      - echo "[default]" >> ~/.aws/config
-      - echo "region = us-east-1" >> ~/.aws/config
-      - cat ~/.aws/config
-      - echo "[default]" >> ~/.aws/credentials
-      - echo "aws_access_key_id = $accesskey" >> ~/.aws/credentials
-      - echo "aws_secret_access_key = $secretkey" >> ~/.aws/credentials
-      - echo "[preview]" >> ~/.aws/config
-      - echo "cloudfront = true" >> ~/.aws/config
       - pwd
   build:
     commands:
-      - aws s3 ls
       - cat README.md
-      - cat testfile
+     
   post_build:
     commands:
-      - aws configure list
+      - cat testfile
