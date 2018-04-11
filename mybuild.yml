@@ -22,6 +22,7 @@ phases:
     commands:
       - aws s3 ls
       - cat README.md
+      - cat testfile
   post_build:
     commands:
       - aws configure list
