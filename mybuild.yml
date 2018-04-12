@@ -3,11 +3,13 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - ls
       - pwd
   build:
     commands:
       - cat README.md
-      - cat testfile
+     
   post_build:
     commands:
       - ls
+      - cat testfile
